@@ -47,14 +47,14 @@ nd* BST(){
     }
     return root;
 }
-int search(nd* root, int key){
-    if(!root){
-        return 0;
+nd* search(nd* root, int key){
+    if(!root || root->data==key){
+        return root;
     }
     nd* temp=root;
     while(temp){
         if(temp->data==key){
-            return 1;
+            return root;
         }
         if(temp->data > key){
             temp=temp->left;
@@ -63,7 +63,7 @@ int search(nd* root, int key){
             temp=temp->right;
         }
     }
-    return 0;
+    return NULL;
 }
 void inorder(nd* root){
     if(root){
